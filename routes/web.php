@@ -12,6 +12,6 @@
 */
 
 Route::get('/', function () {
-    return redirect('/dashboard');
+    return view('welcome');
 });
 Route::get('dashboard', 'DashboardController@render');
