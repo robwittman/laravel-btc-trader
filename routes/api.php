@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/rates', 'HistoricRateController');
 Route::resource('/accounts', 'AccountsController');
+Route::resource('/payment_methods', 'PaymentMethodsController');

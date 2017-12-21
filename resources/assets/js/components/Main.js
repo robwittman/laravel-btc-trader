@@ -7,6 +7,28 @@ import AccountListPage from './account/AccountListPage';
 
 /* An example React component */
 class Main extends Component {
+    componentDidMount() {
+        this.ws = new WebSocket('wss://ws-feed.gdax.com');
+        this.ws.onopen = e => {
+            this.ws.send(
+                JSON.stringify({
+                type: 'subscribe',
+                product_ids: [
+                    'BTC-USD',
+                    'ETH-USD',
+                    'LTC-USD'
+                ],
+                'channels': [
+                    'ticker',
+                    'heartbeat'
+                ]
+            }));
+        }
+        this.ws.onmessage = e => console.log(e);
+        this.ws.onerror = e => console.log(e);
+        this.ws.onclose = e => console.log(e);
+        console.log(this.ws);
+    }
     render() {
         return (
             <div>
