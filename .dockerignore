@@ -1,0 +1,7 @@
+/data
+.env.example
+.gitattributes
+.gitignore
+Dockerfile
+docker-compose.yml
+tests
